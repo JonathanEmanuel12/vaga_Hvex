@@ -4,9 +4,8 @@ const app = express();
 
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 
-const usuarios = require('./routes/users');
+const usuarios = require('./routes/usuarios');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
