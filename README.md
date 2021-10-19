@@ -12,7 +12,13 @@ Se trata de uma API rest que fornece um CRUD para usuarios.
 * Mongoose
 
 ### Rotas
-* Create - POST / corpo: nome, nome_usuario, senha.
-* Read - GET /:id
-* Update - PUT /:id corpo: nome, nome_usuario, senha.
-* Delete - DELETE /:id
+
+Url completa: http://localhost:3000/api/usuarios
+
+**Create - POST /**  corpo: _id, nome, login, senha.
+
+**Read - GET /:id e GET /**
+
+**Update - PUT /:id** corpo: nome, login, senha.
+
+**Delete - DELETE /:id**
