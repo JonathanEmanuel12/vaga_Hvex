@@ -12,6 +12,7 @@ controleUsuario = {
     },
     criarUsuario: async (body) => {
         var date = new Date;
+        
         const usuario = new Usuario({
             _id: body._id,
             nome: body.nome,
@@ -21,7 +22,6 @@ controleUsuario = {
         });
         
         try {
-            console.log("chegou aqui: " + usuario);
             await usuario.save();   
             return { mensagem: "Sucesso!" };
         }
@@ -31,7 +31,11 @@ controleUsuario = {
     },
     lerUsuario: async (identificador) => {
         try {
-            return await Usuario.findById({_id: identificador}).lean().exec();
+            const usuario = await Usuario.findById({_id: identificador}).lean().exec();
+            if(usuario == null) {
+                throw new Error("Nenhum usuário foi encontrado");
+            }
+            return usuario;
         }
         catch(error) {
             return { mensagem: error.message };
@@ -39,12 +43,8 @@ controleUsuario = {
         
     },
     alterarUsuario: async (identificador, body) => {
-        console.log("Chegou no controle");
-
         try {
             const usuario = await Usuario.findById({_id: identificador}).exec();
-
-            console.log("Chegou no try" + usuario);
 
             if(usuario == null) {
                 throw new Error("Nenhum usuário encontrado");
@@ -58,16 +58,19 @@ controleUsuario = {
             usuario.data_ultimo_acesso = (date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear())
 
             await usuario.save();
-            return usuario;
+            return { mensagem: "Alterado com sucesso" };
         }
         catch(error) {
             return { mensagem: error.message };
         }    
     },
     deletarUsuario: async (identificador) => {
-        console.log(identificador);
         try {
-            await Usuario.deleteOne({_id: identificador});
+            const usuario = await Usuario.deleteOne({_id: identificador});
+            if(usuario.deletedCount == 0) {
+                throw new Error("Nenhum usuário encontrado");
+            }
+            
             return {mensagem: "Deletado com sucesso"};
         }
         catch(error) {

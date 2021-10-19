@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  res.json(controle.alterarUsuario(req.params.id, req.body));
+  res.json(await controle.alterarUsuario(req.params.id, req.body));
 });
 
 router.delete('/:id', async (req, res) => {
