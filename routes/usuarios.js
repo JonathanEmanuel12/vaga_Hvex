@@ -10,12 +10,10 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-  console.log(req.params.id);
   res.json(await controle.lerUsuario(req.params.id));
 });
 
 router.post('/', async (req, res) => {
-  console.log("Chegou na rota");
   res.json(await controle.criarUsuario(req.body));
 });
 
@@ -24,7 +22,6 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  console.log(req.params.id);
   res.json(await controle.deletarUsuario(req.params.id));
 })
 
