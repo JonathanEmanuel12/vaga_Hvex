@@ -18,7 +18,7 @@ Url completa: http://localhost:3000/api/usuarios
 Create - POST / 
 * corpo: _id, nome, login, senha.
 
-Read - GET /:id
+Read - GET /:id e GET /
 
 Update - PUT /:id 
 * corpo: nome, login, senha.
