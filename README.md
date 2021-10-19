@@ -14,7 +14,7 @@ Se trata de uma API rest que fornece um CRUD para usuarios.
 ### Rotas
 
 Url completa: http://localhost:3000/api/usuarios
-* Create - **POST /** corpo: nome, nome_usuario, senha.
+* Create - **POST /** corpo: _id, nome, login, senha.
 * Read - **GET /:id**
-* Update - **PUT /:id** corpo: nome, nome_usuario, senha.
+* Update - **PUT /:id** corpo: nome, login, senha.
 * Delete - **DELETE /:id**
