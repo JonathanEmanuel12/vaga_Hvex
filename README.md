@@ -31,3 +31,5 @@ As demais dependências estão descritas no package-json e podem ser instaladas 
 
 Após iniciar o servidor mongoDB localmente na porta 27017, com o comando npm start a aplicação é iniciada.
 
+
+
