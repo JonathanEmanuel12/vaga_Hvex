@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const controle = require('../controle/usuarioControle'); 
 
-/* GET users listing. */
+
 router.get('/', async (req, res) => {
   res.json(await controle.lerTodosUsuarios());  
 });
