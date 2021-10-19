@@ -1,15 +1,6 @@
 const {mongoose, Usuario} = require('../model/usuarioModel');
 
 controleUsuario = {
-    lerTodosUsuarios: async () => {
-        try {
-            const usuarios = await Usuario.find({}).lean().exec();
-            return usuarios;
-        }
-        catch(error) {
-            return { mensagem: error.message };
-        }
-    },
     criarUsuario: async (body) => {
         var date = new Date;
         
@@ -24,6 +15,15 @@ controleUsuario = {
         try {
             await usuario.save();   
             return { mensagem: "Sucesso!" };
+        }
+        catch(error) {
+            return { mensagem: error.message };
+        }
+    },
+    lerTodosUsuarios: async () => {
+        try {
+            const usuarios = await Usuario.find({}).lean().exec();
+            return usuarios;
         }
         catch(error) {
             return { mensagem: error.message };
